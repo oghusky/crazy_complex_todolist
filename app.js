@@ -128,6 +128,7 @@ document.querySelector("#todo-list").addEventListener("click", (e) => {
     }
   }
   if (e.target.classList.contains("pencil")) {
+    localStorage.setItem("tempTodoItem", "")
     const showlist = showTodoList(localStorage.getItem("oop_todo"))
     const filtered = showlist.filter(item => item.id === e.target.getAttribute("data-id"))
     const exactDiv = filtered[0];
@@ -140,7 +141,7 @@ document.querySelector("#todo-list").addEventListener("click", (e) => {
     checkForBlockInput(hiddenDiv);
   }
   if (e.target.classList.contains("update")) {
-    if (localStorage.getItem("tempTodoItem") !== "" || localStorage.getItem("tempTodoItem") !== null) {
+    if (localStorage.getItem("tempTodoItem").length > 0) {
       const showlist = showTodoList(localStorage.getItem("oop_todo"))
       const filtered = showlist.filter(item => item.id === e.target.getAttribute("data-id"));
       const notFiltered = showlist.filter(item => item.id !== e.target.getAttribute("data-id"));
@@ -156,14 +157,36 @@ document.querySelector("#todo-list").addEventListener("click", (e) => {
         showTodoList(localStorage.getItem("oop_todo"))
       }
     }
+    else {
+      const showlist = showTodoList(localStorage.getItem("oop_todo"))
+      const filtered = showlist.filter(item => item.id === e.target.getAttribute("data-id"))
+      const exactDiv = filtered[0];
+      const divList = document.querySelectorAll(".todo-item")
+      const found = Array.from(divList).find(div => div.id === exactDiv.id)
+      const shownDiv = found.querySelector(".showOnLoad")
+      const hiddenDiv = found.querySelector(".hideOnLoad")
+      shownDiv.style.display = "block";
+      hiddenDiv.style.display = "none";
+    }
+  }
+  if (e.target.classList.contains("cancel")) {
+    const showlist = showTodoList(localStorage.getItem("oop_todo"))
+    const filtered = showlist.filter(item => item.id === e.target.getAttribute("data-id"))
+    const exactDiv = filtered[0];
+    const divList = document.querySelectorAll(".todo-item")
+    const found = Array.from(divList).find(div => div.id === exactDiv.id)
+    const shownDiv = found.querySelector(".showOnLoad")
+    const hiddenDiv = found.querySelector(".hideOnLoad")
+    shownDiv.style.display = "block";
+    hiddenDiv.style.display = "none";
   }
 });
 
 function checkForBlockInput(input) {
-  const bloop = input.querySelector("input[type='text']")
-  bloop.addEventListener("keyup", (e) => {
+  const newWord = input.querySelector("input[type='text']")
+  newWord.addEventListener("keyup", (e) => {
     if (e.target.value) {
       localStorage.setItem("tempTodoItem", e.target.value);
-    } else localStorage.setItem("tempTodoItem", "");
+    }
   })
 }
