@@ -4,12 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalStorage Todo List</title>
+  <title>The Crazy Complex TodoList</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <h1>LocalStorage TodoList</h1>
+  <nav>
+    <div>
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+    </div>
+  </nav>
+  <h1>The Crazy Complex TodoList</h1>
+  <h3>Read up about whats crazy about it on the about page.</h3>
   <div id="add-todo">
     <label for="todo-input">Enter Todo <span>*</span></label>
     <input type="text" name="todo-input" id="todo-input" placeholder="get eggs">
@@ -21,9 +28,15 @@
     </select>
     <p id="submit">
       <button>SUBMIT</button>
+      <br>
+      <br>
+      <button id="dump">Empty Storage</button>
+    <p><small>Dumps local storage keys and items and takes you off site so they don't repopulate</small></p>
     </p>
   </div>
-  <div id="todo-list"></div>
+  <div id="list-wrapper">
+    <div id="todo-list"></div>
+  </div>
   <script src="./app.js"></script>
 </body>
 

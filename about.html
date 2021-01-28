@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About The Crazy Complex TodoList</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <nav>
+    <div>
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+    </div>
+  </nav>
+</body>
+<main>
+  <h1>About The Crazy Complex TodoList</h1>
+  <h3>Here are a list of reasons why this simple app is called complex</h3>
+  <!-- project points -->
+  <section id="points">
+    <p>Disclaimer: I know the UI isn't great. But, the functionality implementation is!</p>
+    <h2>1. No libraries (Not even bootstrap)</h2>
+    <p>No bootstrap, no jquery, this app is only using vanilla HTML, CSS, JS and alot of elbow grease. All functionality
+      is dynamically created and accessed using JS ES6. </p>
+    <h2>2. A little OOP behind the scenes</h2>
+    <code>
+      <pre>
+        class TodoItem {
+          constructor(text, isUrgent) {
+            this.text = text;
+            this.isUrgent = isUrgent;
+            this.today = new Date();
+          }
+          ...// things happened here check
+          ...// it out in the github repo
+        }
+      </pre>
+    </code>
+    <p>Though the user only has to enter text and tap submit, there is a little bit of OOP going on behind the scenes.
+      If the user chooses to
+      mark ther todo item as an "urgent" or not, there's a method on each new todo created to check that value. If it is
+      urgent the background is red and text white.
+      If marked as not urgent the background is green and the text white. Otherwise the background grey and text black.
+    </p>
+    <h2>3. Full CRUD using localStorage (without reloading the page)</h2>
+    <p>That's right you can Create Read Update AND Delete. One of the coolest parts was figuring out how to update in
+      place without reloading the page. When the "&Cross;" or "&trisb;" buttons are clicked actions happen in place. The
+      "&Cross;" button deletes
+      the current todo item and the "&trisb;" button reveals an input for the user to be able to update the todo text in
+      place.</p>
+    <p>Psssst.... no e.preventDefault() either &#128521;(wink noise). Just alot of functions passing things around to
+      other functions.</p>
+    <h2>4. No spaghetti code</h2>
+    <p>There's not ONE variable declared globally in the whole program. All variables are encapsulated inside of the
+      functions they are needed.</p>
+  </section>
+</main>
+
+</html>

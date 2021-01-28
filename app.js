@@ -1,5 +1,8 @@
+// init function 
 showTodoList(localStorage.getItem("oop_todo"))
 
+
+// create todo item
 class TodoItem {
   constructor(text, isUrgent) {
     this.text = text;
@@ -40,6 +43,8 @@ class TodoItem {
   }
 }
 
+// checks to see if local storage is null or empty
+// if it is the keys are created in ls automatically
 function checkStorage(db, item) {
   if (db === null || db === "") {
     localStorage.setItem("oop_todo", JSON.stringify(item))
@@ -50,6 +55,7 @@ function checkStorage(db, item) {
   return showTodoList(localStorage.getItem("oop_todo"))
 }
 
+// runs after almost every button clicked on page
 function showTodoList(arr) {
   let list;
   if (arr === null) {
@@ -68,6 +74,7 @@ function showTodoList(arr) {
   return list;
 }
 
+// maps localstorage to html element on page
 function mapTodoList(arr) {
   const todolist = document.querySelector("#todo-list");
   todolist.innerHTML = "";
@@ -99,6 +106,7 @@ function mapTodoList(arr) {
   }
 }
 
+// submit button functionality
 document.querySelector("#submit button").addEventListener("click", () => {
   const isUrgent = document.querySelector('#add-todo select');
   const todoText = document.querySelector("#add-todo input");
@@ -110,7 +118,9 @@ document.querySelector("#submit button").addEventListener("click", () => {
   todoText.value = "";
 });
 
+// checks for clicks on each dynamically created todo item
 document.querySelector("#todo-list").addEventListener("click", (e) => {
+  // checks for cross button on todo item
   if (e.target.classList.contains("cross")) {
     const showlist = showTodoList(localStorage.getItem("oop_todo"))
     const filtered = showlist.filter(item => item.id !== e.target.getAttribute("data-id"))
@@ -152,7 +162,7 @@ document.querySelector("#todo-list").addEventListener("click", (e) => {
         localStorage.setItem("oop_todo", JSON.stringify(exactDiv));
         showTodoList(localStorage.getItem("oop_todo"))
       } else if (showTodoList(localStorage.getItem("oop_todo")).length > 1) {
-        const allTogether = [...notFiltered, filtered[0]].map(item => JSON.stringify(item)).join(";")
+        const allTogether = [filtered[0], ...notFiltered].map(item => JSON.stringify(item)).join(";")
         localStorage.setItem("oop_todo", allTogether);
         showTodoList(localStorage.getItem("oop_todo"))
       }
@@ -182,6 +192,7 @@ document.querySelector("#todo-list").addEventListener("click", (e) => {
   }
 });
 
+// functionality to temporarily save new todo text to ls
 function checkForBlockInput(input) {
   const newWord = input.querySelector("input[type='text']")
   newWord.addEventListener("keyup", (e) => {
@@ -190,3 +201,10 @@ function checkForBlockInput(input) {
     }
   })
 }
+
+// dumps all ls info and sends user to another page
+document.querySelector("#dump").addEventListener("click", () => {
+  localStorage.removeItem("tempTodoItem")
+  localStorage.removeItem("oop_todo")
+  window.location = "http://www.parttimedevs.com"
+})

@@ -9,14 +9,39 @@ body{
   width: 100%;
   overflow-x: hidden;
 }
+
+nav{
+  padding: 20px;
+}
+
+nav div{
+  display:flex;
+  justify-content: center;
+}
+
+nav a,
+nav a:hover{
+  text-decoration: none;
+  margin-right: 10px;
+  color: black;
+}
+
 h1{
   text-align: center;
   font-size: 50px;
 }
+h3{
+  text-align: center;
+  margin-bottom: 20px;
+}
+#list-wrapper{
+  height: 300px;
+  overflow-y:scroll;
+}
 #add-todo{
   width: 50%;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 2rem;
   background-color: #eee;
 }
 
@@ -51,14 +76,14 @@ h1{
 
 .todo-item{
   padding: 20px;
-  width: 60%;
+  width: 50%;
   margin: 10px auto;
   transition: all .2s ease-out;
 }
 
 .todo-item .todo-text{
   font-weight: bold;
-  font-size: 50px;
+  font-size: 40px;
   text-align: left;
   margin: 0;
   padding: 0;
@@ -78,10 +103,12 @@ h1{
 
 .todo-item .cross{
   font-size: 35px;
+  margin-right: 20px;
 }
 
 .todo-item .pencil{
-  transform: rotateZ(180deg)
+  transform: rotateZ(180deg);
+  margin-left: 20px;
 }
 
 .todo-item label{
@@ -116,4 +143,41 @@ h1{
 
 .hideOnLoad p{
   margin-top: 10px;
+}
+
+/* ===================== about page starts here ================= */
+
+#points{
+  width: 80%;
+  margin: 0 auto;
+}
+#points h2{
+  margin: 40px 0 10px;
+}
+
+code pre{
+  font-size: 20px;
+  padding: 20px 0;
+  overflow-wrap: break-word !important;
+}
+
+/* ===================== about page ends here ================= */
+
+
+
+@media screen and (max-width: 425px){
+  h1{
+    font-size: 30px;
+  }
+  h3{
+    font-size: 15px;
+  }
+  #add-todo,
+  .todo-item{
+    width: 95%;
+  }
+  code pre{
+    font-size: 12px;
+    margin-left: -30px;
+  }
 }
