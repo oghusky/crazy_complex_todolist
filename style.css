@@ -1,0 +1,119 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+h1{
+  text-align: center;
+  font-size: 50px;
+}
+#add-todo{
+  width: 50%;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: #eee;
+}
+
+#add-todo label{
+  display: block;
+  margin: 10px 0;
+}
+
+#add-todo label span{
+  color: red;
+}
+
+#add-todo input,
+#add-todo select{
+  width: 100%;
+  font-size: 25px;
+  padding: 5px 5px 5px 10px;
+  margin-bottom: 20px;
+}
+
+#submit{
+  text-align: center;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+#submit button{
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.todo-item{
+  padding: 20px;
+  width: 60%;
+  margin: 10px auto;
+  transition: all .2s ease-out;
+}
+
+.todo-item .todo-text{
+  font-weight: bold;
+  font-size: 50px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-item .createdAt{
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.todo-item button{
+  border:none;
+  outline: none;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+.todo-item .cross{
+  font-size: 35px;
+}
+
+.todo-item .pencil{
+  transform: rotateZ(180deg)
+}
+
+.todo-item label{
+  display: block;
+  margin: 5px 0 10px 0;
+  padding: 0;
+}
+.todo-item input{
+  margin-top: 0;
+  padding: 5px 5px 5px 10px;
+  font-size: 25px;
+}
+
+.todo-item .update,
+.todo-item .cancel{
+  font-size: 16px;
+  outline: 1px solid black;
+  width: 85px;
+  padding: 5px;
+}
+
+.todo-item .update{
+  margin-right: 5px;
+}
+.todo-item .cancel{
+  margin-left: 5px;
+}
+
+.hideOnLoad{
+  display: none;
+}
+
+.hideOnLoad p{
+  margin-top: 10px;
+}

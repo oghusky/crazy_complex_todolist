@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage Todo List</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>LocalStorage TodoList</h1>
+  <div id="add-todo">
+    <label for="todo-input">Enter Todo <span>*</span></label>
+    <input type="text" name="todo-input" id="todo-input" placeholder="get eggs">
+    <label for="todo-input">Is this Urgent? (Optional)</label>
+    <select name="isUrgent" id="isUrgent">
+      <option value="...">-- Choose option --</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    <p id="submit">
+      <button>SUBMIT</button>
+    </p>
+  </div>
+  <div id="todo-list"></div>
+  <script src="./app.js"></script>
+</body>
+
+</html>
